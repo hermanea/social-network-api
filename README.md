@@ -22,4 +22,4 @@ This project is covered under the MIT license.
 
 ## Questions
 
-For inquiries about this project, you may [email](mailto:evanaherman@gmail.com) the developer or checkout their Github [Here](https://github.com/hermanea/social-network-api).
+For inquiries about this project, you may [email](mailto:evanaherman@gmail.com) the developer or checkout their Github [here](https://github.com/hermanea/social-network-api).
