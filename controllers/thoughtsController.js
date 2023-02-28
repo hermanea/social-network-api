@@ -1,4 +1,5 @@
 const { User, Thought, Reaction } = require('../models');
+const { ObjectId } = require('mongoose').Types;
 
 module.exports = {
     getThoughts(req, res) {
@@ -14,7 +15,7 @@ module.exports = {
         Thought.findById(req.params.thoughtId)
             .then(thought => {
                 if (!thought) {
-                    res.status(404).json({ message: 'No thought with this Id' })
+                    res.status(404).json({ message: 'No thought with this Id.' })
                 } else {
                     res.json(thought)
                 }
@@ -26,7 +27,7 @@ module.exports = {
         User.findById(req.body.userId)
             .then(user => {
                 if (!user) {
-                    res.status(404).json({ message: 'No user with this Id' })
+                    res.status(404).json({ message: 'No user with this Id.' })
                 } else {
                     Thought.create({
                         thoughtText: req.body.thoughtText,
@@ -53,7 +54,7 @@ module.exports = {
         )
         .then(thought => {
             if (!thought) {
-                res.status(404).json({ message: 'No thought with this Id' })
+                res.status(404).json({ message: 'No thought with this Id.' })
             } else {
                 res.json(thought)
             }
@@ -72,9 +73,9 @@ module.exports = {
             Thought.findOneAndDelete({ _id: req.params.thoughtId })
                 .then(thought => {
                     if (!thought) {
-                        res.status(404).json({ message: 'No thought with this Id' })
+                        res.status(404).json({ message: 'No thought with this Id.' })
                     } else {
-                        res.json({ message: 'Thought successfully deleted' })
+                        res.json({ message: 'Thought successfully deleted.' })
                     }
                 })
         })
@@ -90,7 +91,7 @@ module.exports = {
         )
         .then(thought => {
             if (!thought) {
-                res.status(404).json({ message: 'No thought with this Id' })
+                res.status(404).json({ message: 'No thought with this Id.' })
             } else {
                 res.json(thought)
             }
@@ -107,7 +108,7 @@ module.exports = {
         )
         .then(thought => {
             if (!thought) {
-                res.status(404).json({ message: 'No thought with this Id' })
+                res.status(404).json({ message: 'No thought with this Id.' })
             } else {
                 res.json(thought)
             }

@@ -1,4 +1,5 @@
 const { User, Thought } = require('../models');
+const { ObjectId } = require('mongoose').Types;
 
 module.exports = {
     getUsers(req, res) {
@@ -19,7 +20,7 @@ module.exports = {
             .populate({ path: 'thoughts' })
             .then(user => {
                 if (!user) {
-                    res.status(404).json({ message: 'No user with this Id' })
+                    res.status(404).json({ message: 'No user with this Id.' })
                 } else {
                     res.json(user)
                 }
@@ -41,7 +42,7 @@ module.exports = {
         )
         .then(user => {
             if (!user) {
-                res.status(404).json({ message: 'No user with this Id' })
+                res.status(404).json({ message: 'No user with this Id.' })
             } else {
                 res.json(user)
             }
@@ -54,10 +55,10 @@ module.exports = {
         User.findOneAndDelete(req.params.userId)
             .then(user => {
                 if (!user) {
-                    res.status(400).json({ message: 'No user with such Id' })
+                    res.status(400).json({ message: 'No user with this Id.' })
                 } else {
                     Thought.deleteMany({ _id: { $in: user.thoughts } })
-                        .then(() => res.json({ message: 'User and their thoughts successfully deleted' }))
+                        .then(() => res.json({ message: 'User and thoughts successfully deleted.' }))
                 }
             })
             .catch(err => {
@@ -72,7 +73,7 @@ module.exports = {
         )
         .then(user => {
             if (!user) {
-                res.status(404).json({ message: 'No user with this Id' })
+                res.status(404).json({ message: 'No user with this Id.' })
             } else {
                 res.json(user)
             }
@@ -89,7 +90,7 @@ module.exports = {
         )
         .then(user => {
             if (!user) {
-                res.status(404).json({ message: 'No user with this Id' })
+                res.status(404).json({ message: 'No user with this Id.' })
             } else {
                 res.json(user)
             }
